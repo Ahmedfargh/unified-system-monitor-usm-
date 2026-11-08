@@ -1,0 +1,22 @@
+[
+  {
+    "directory": "/home/ahmed/cpp/system-monitor",
+    "command": "/usr/bin/g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude -I. -c main.cpp -o main.o",
+    "file": "main.cpp"
+  },
+  {
+    "directory": "/home/ahmed/cpp/system-monitor",
+    "command": "/usr/bin/g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude -I. -c src/CpuCollector/CpuCollector.cpp -o src/CpuCollector/CpuCollector.o",
+    "file": "src/CpuCollector/CpuCollector.cpp"
+  },
+  {
+    "directory": "/home/ahmed/cpp/system-monitor",
+    "command": "/usr/bin/g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude -I. -c src/MemeoryCollector/MemeoryCollector.cpp -o src/MemeoryCollector/MemeoryCollector.o",
+    "file": "src/MemeoryCollector/MemeoryCollector.cpp"
+  },
+  {
+    "directory": "/home/ahmed/cpp/system-monitor",
+    "command": "/usr/bin/g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude -I. -c src/utils/ArgParser.cpp -o src/utils/ArgParser.o",
+    "file": "src/utils/ArgParser.cpp"
+  }
+]
