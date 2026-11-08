@@ -1,0 +1,10 @@
+# Executables
+main
+
+# Compiled Object files
+*.o
+*.s
+*.d
+
+# IDE
+.vscode/

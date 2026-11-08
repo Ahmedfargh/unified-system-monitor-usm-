@@ -5,6 +5,7 @@ TARGET   := main
 # Find all .cpp files in the current folder, src/, and ProcessCollector/
 SRCS := $(shell find . -name '*.cpp')
 OBJS := $(SRCS:.cpp=.o)
+ASMS := $(SRCS:.cpp=.s)
 
 all: $(TARGET)
 
@@ -14,7 +15,12 @@ $(TARGET): $(OBJS)
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-clean:
-	rm -f $(OBJS) $(TARGET)
+%.s: %.cpp
+	$(CXX) $(CXXFLAGS) -S -masm=intel -fverbose-asm $< -o $@
 
-.PHONY: all clean
+asm: $(ASMS)
+
+clean:
+	rm -f $(OBJS) $(ASMS) $(TARGET)
+
+.PHONY: all clean asm

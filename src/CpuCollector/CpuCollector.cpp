@@ -1,26 +1,17 @@
 #include <collectors/ProcessCollector/CpuCollector.hpp>
+#include <utils/StringUtils.hpp>
+#include <utils/FileUtils.hpp>
 #include <iostream>
 #include <string>
-#include <unistd.h>
-#include <cerrno>
-#include <cstring>
 #include <fstream>
-#include <sstream>
 
 using std::string;
 using std::cout;
 using std::cerr;
 using std::ifstream;
 using std::stoi;
-namespace sysmon {
 
-// Helper to remove leading and trailing whitespace / tabs
-static string trim(const string& str) {
-    size_t first = str.find_first_not_of(" \t\r\n");
-    if (first == string::npos) return "";
-    size_t last = str.find_last_not_of(" \t\r\n");
-    return str.substr(first, (last - first + 1));
-}
+namespace sysmon {
 
 void CpuCollector::Collect() {
     cout << "[CpuCollector] Collecting CPU info...\n";
@@ -34,18 +25,12 @@ void CpuCollector::Collect() {
     info_.core_count = 0;
 
     string line;
+    string key;
+    string value;
     while (std::getline(file, line)) {
-        if (line.empty()) {
+        if (!utils::SplitKeyValue(line, key, value, ':')) {
             continue;
         }
-
-        size_t colon_pos = line.find(':');
-        if (colon_pos == string::npos) {
-            continue;
-        }
-
-        string key = trim(line.substr(0, colon_pos));
-        string value = trim(line.substr(colon_pos + 1));
 
         if (key == "processor") {
             info_.core_count++;
@@ -79,12 +64,7 @@ const CpuInfo& CpuCollector::GetInfo() const {
 }
 
 bool CpuCollector::HasPermissionTo() {
-    string process_path = "/proc/cpuinfo";
-    if (access(process_path.c_str(), R_OK) == 0) {
-        return true;
-    }
-    cerr << "Access denied: " << std::strerror(errno) << "\n";
-    return false;
+    return utils::CanReadFile("/proc/cpuinfo");
 }
 
 } // namespace sysmon

@@ -36,14 +36,20 @@ system-monitor/
 │   │       ├── MemeoryCollector.hpp          # Memory collector declaration
 │   │       └── MemoryData.hpp                # MemeoryInfo data structure
 │   └── utils/
-│       └── ArgParser.hpp                     # CLI argument parser declaration
+│       ├── ArgParser.hpp                     # CLI argument parser declaration
+│       ├── StringUtils.hpp                   # String manipulation utilities (Trim, Split)
+│       ├── ConversionUtils.hpp               # Unit conversions (kB to GB)
+│       └── FileUtils.hpp                     # File permission and access utilities
 ├── src/
 │   ├── CpuCollector/
 │   │   └── CpuCollector.cpp                  # CPU parsing implementation (/proc/cpuinfo)
 │   ├── MemeoryCollector/
 │   │   └── MemeoryCollector.cpp              # Memory parsing implementation (/proc/meminfo)
 │   └── utils/
-│       └── ArgParser.cpp                     # CLI parsing implementation
+│       ├── ArgParser.cpp                     # CLI parsing implementation
+│       ├── StringUtils.cpp                   # String trimming & splitting implementation
+│       ├── ConversionUtils.cpp               # Conversion implementation
+│       └── FileUtils.cpp                     # File access implementation
 ├── .clangd                                   # clangd language server configuration
 ├── compile_commands.json                     # Compilation database for IDEs
 ├── Makefile                                  # Build configuration

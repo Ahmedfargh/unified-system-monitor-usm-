@@ -18,5 +18,20 @@
     "directory": "/home/ahmed/cpp/system-monitor",
     "command": "/usr/bin/g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude -I. -c src/utils/ArgParser.cpp -o src/utils/ArgParser.o",
     "file": "src/utils/ArgParser.cpp"
+  },
+  {
+    "directory": "/home/ahmed/cpp/system-monitor",
+    "command": "/usr/bin/g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude -I. -c src/utils/StringUtils.cpp -o src/utils/StringUtils.o",
+    "file": "src/utils/StringUtils.cpp"
+  },
+  {
+    "directory": "/home/ahmed/cpp/system-monitor",
+    "command": "/usr/bin/g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude -I. -c src/utils/ConversionUtils.cpp -o src/utils/ConversionUtils.o",
+    "file": "src/utils/ConversionUtils.cpp"
+  },
+  {
+    "directory": "/home/ahmed/cpp/system-monitor",
+    "command": "/usr/bin/g++ -std=c++17 -Wall -Wextra -Wpedantic -Iinclude -I. -c src/utils/FileUtils.cpp -o src/utils/FileUtils.o",
+    "file": "src/utils/FileUtils.cpp"
   }
 ]
